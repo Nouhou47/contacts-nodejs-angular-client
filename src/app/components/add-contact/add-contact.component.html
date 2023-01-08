@@ -1,0 +1,104 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nom"
+          required
+          [(ngModel)]="contact.nom"
+          name="nom"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="prenom">Prénom</label>
+        <input
+          type="text"
+          class="form-control"
+          id="prenom"
+          required
+          [(ngModel)]="contact.prenom"
+          name="prenom"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="telephone">Téléphone</label>
+        <input
+          class="form-control"
+          type="text"
+          id="telephone"
+          name="telephone"
+          required
+          [(ngModel)]="contact.telephone"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          id="email"
+          required
+          [(ngModel)]="contact.email"
+          name="email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="adresse">Adresse</label>
+        <input
+          type="text"
+          class="form-control"
+          id="adresse"
+          required
+          [(ngModel)]="contact.adresse"
+          name="adresse"
+        />
+      </div>
+      <div class="form-group">
+        <label for="date_naissance">Date naissance</label>
+        <input
+          type="text"
+          class="form-control"
+          id="date_naissance"
+          required
+          [(ngModel)]="contact.date_naissance"
+          name="date_naissance"
+        />
+      </div>
+      <!--<div class="form-group">
+        <label for="photo">Photo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="photo"
+          required
+          [(ngModel)]="contact.photo"
+          name="photo"
+        />
+      </div>-->
+      <div class="form-group">
+        <label for="occupation">occupation</label>
+        <input
+          type="text"
+          class="form-control"
+          id="occupation"
+          required
+          [(ngModel)]="contact.occupation"
+          name="occupation"
+        />
+      </div>
+
+      <button (click)="saveContact()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>You submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newContact()">Add</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Recherche par nom ou prénom "
+        [(ngModel)]="queryparam"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchNom()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Tous les Contacts</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let contact of contacts; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveContact(contact, i)"
+      >
+        {{ contact.nom }} {{ contact.prenom }}
+      </li>
+    </ul>
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllContacts()">
+      Tout effacer
+    </button>
+    <button class="m-3 btn btn-sm btn-success" (click)="exportToPDF()">
+      Exporter au format PDF
+    </button>
+  </div>
+  <div class="col-md-6">
+    <app-contact-details
+      [viewMode]="true"
+      [currentContact]="currentContact"
+    ></app-contact-details>
+
+    <!--<div *ngIf="currentBook">
+      <h4>Book</h4>
+      <div>
+        <label for=""><strong>Title:</strong></label
+        >{{ currentBook.name }}
+      </div>
+      <div>
+        <label for=""><strong>Description:</strong></label>
+        {{ currentBook.description }}
+      </div>
+      <div>
+        <label for=""><strong>Status:</strong></label>
+        {{ currentBook.sold ? "Sold" : "Pending" }}
+      </div>
+
+      <a class="badge badge-warning" routerLink="/books/{{ currentBook.id }}">
+        Edit
+      </a>
+    </div>
+
+    <div *ngIf="!currentBook">
+      <br />
+      <p>Please click on a Book...</p>
+    </div>
+-->
+  </div>
+</div>
